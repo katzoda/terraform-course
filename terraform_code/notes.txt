@@ -1,0 +1,8 @@
+State file
+- lineage > which infrastructure is manages by this particular state, useful for multiple deployments
+- serial > incremented anytime the state is changed
+
+
+*** Terraform ***
+terraform show -json | jq
+- it outputs tfstate file as it is
