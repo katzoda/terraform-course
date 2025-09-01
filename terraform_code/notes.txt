@@ -4,5 +4,22 @@ State file
 
 
 *** Terraform ***
+terraform show
+- shows everything in the current state
+
 terraform show -json | jq
-- it outputs tfstate file as it is
+- it outputs tfstate file as it is in json format
+
+terraform state list
+- it's going to list resources:
+github_repository.kd-repo
+github_repository_file.readme
+
+terraform state show github_repository.kd-repo
+- shows all attributes of the specific resource in hcl
+- could be copied into main.tf
+
+terraform state show github_repository.kd-repo | grep "description"
+- for finding an attribute quickly
+- not recommended for automation without extensive testing
+

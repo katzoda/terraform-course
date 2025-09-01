@@ -14,3 +14,11 @@ resource "github_repository_file" "readme" {
   content = "# This is a repo for infra developers"
   overwrite_on_create = true
 }
+
+resource "github_repository_file" "index" {
+  repository = github_repository.kd-repo.name
+  branch = "main"
+  file = "index.html"
+  content = "<h1>Hello Terraform!</h1>"
+  overwrite_on_create = true
+}
