@@ -10,8 +10,9 @@ resource "github_repository" "kd-repo" {
 }
 
 resource "github_repository_file" "readme" {
-  # it is setting an implicit tenancy - this github_repository needs to be created first
-  # because I have specified the implicit reference or "dependency link" to the repository and didn't hardcoded the name "kd-repo" >> terraform will know that it needs to create this repo first
+  # by specifying repository attribute as "github_repository.kd-repo.name", it is setting an implicit tenancy or "dependency link"
+  # terraform will then know that it needs to create this repo first
+  repository = github_repository.kd-repo.name
   repository = github_repository.kd-repo.name
   branch = "main"
   file = "README.md"
