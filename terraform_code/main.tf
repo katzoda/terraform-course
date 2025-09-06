@@ -13,7 +13,6 @@ resource "github_repository_file" "readme" {
   # by specifying repository attribute as "github_repository.kd-repo.name", it is setting an implicit tenancy or "dependency link"
   # terraform will then know that it needs to create this repo first
   repository = github_repository.kd-repo.name
-  repository = github_repository.kd-repo.name
   branch = "main"
   file = "README.md"
   content = "# This is a repo for infra developers"
