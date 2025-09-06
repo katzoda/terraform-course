@@ -1,5 +1,9 @@
+resource "random_id" "random" {
+  byte_length = 2
+}
+
 resource "github_repository" "kd-repo" {
-  name        = "kd-repo"
+  name        = "kd-repo-${random_id.random.dec}"
   description = "terraform repo"
   visibility  = "private"
   auto_init   = true

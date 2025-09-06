@@ -1,3 +1,6 @@
+adding new provider
+- we nned to run terraform init again
+
 State file
 - lineage > which infrastructure is manages by this particular state, useful for multiple deployments
 - serial > incremented anytime the state is changed
@@ -22,4 +25,6 @@ terraform state show github_repository.kd-repo
 terraform state show github_repository.kd-repo | grep "description"
 - for finding an attribute quickly
 - not recommended for automation without extensive testing
+
+
 
