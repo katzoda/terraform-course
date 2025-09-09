@@ -1,9 +1,11 @@
 resource "random_id" "random" {
   byte_length = 2
+  count = 2
 }
 
 resource "github_repository" "kd-repo" {
-  name        = "kd-repo-${random_id.random.dec}"
+  count = 2
+  name        = "kd-repo-${random_id.random[count.index].dec}"
   description = "terraform repo"
   visibility  = "private"
   auto_init   = true
@@ -12,7 +14,8 @@ resource "github_repository" "kd-repo" {
 resource "github_repository_file" "readme" {
   # by specifying repository attribute as "github_repository.kd-repo.name", it is setting an implicit tenancy or "dependency link"
   # terraform will then know that it needs to create this repo first
-  repository = github_repository.kd-repo.name
+  count = 2
+  repository = github_repository.kd-repo[count.index].name
   branch = "main"
   file = "README.md"
   content = "# This is a repo for infra developers"
@@ -20,7 +23,8 @@ resource "github_repository_file" "readme" {
 }
 
 resource "github_repository_file" "index" {
-  repository = github_repository.kd-repo.name
+  count = 2
+  repository = github_repository.kd-repo[count.index].name
   branch = "main"
   file = "index.html"
   content = "<h1>Hello Terraform!</h1>"
