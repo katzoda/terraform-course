@@ -30,3 +30,9 @@ resource "github_repository_file" "index" {
   content = "<h1>Hello Terraform!</h1>"
   overwrite_on_create = true
 }
+
+output "repo_names" {
+  value = github_repository.kd-repo[*].name
+  description = "repository names"
+  sensitive = true
+}
