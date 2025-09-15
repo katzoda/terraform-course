@@ -31,8 +31,8 @@ resource "github_repository_file" "index" {
   overwrite_on_create = true
 }
 
-output "repo_names" {
-  value = github_repository.kd-repo[*].name
-  description = "repository names"
-  sensitive = true
+output "clone_urls" {
+  value = { for i in github_repository.kd-repo[*] : i.name => i.http_clone_url }
+  description = "repository names and URLs"
+  sensitive = false
 }
