@@ -5,3 +5,9 @@ variable "repo_count" {
     # it supersedes the default
     default = 1
 }
+
+variable "varsource" {
+    type = string
+    description = "Source used to define variables"
+    default = "variables.tf"
+}
