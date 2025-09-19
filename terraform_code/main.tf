@@ -39,5 +39,5 @@ output "clone_urls" {
 
 output "varsource" {
   value = var.varsource
-  description = "Source being used to source variable definition"
+  description = "Source being used to source variable definition. To test the concept."
 }
