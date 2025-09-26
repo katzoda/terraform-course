@@ -7,7 +7,7 @@ resource "github_repository" "kd-repo" {
   count       = var.repo_count
   name        = "kd-repo-${random_id.random[count.index].dec}"
   description = "terraform repo"
-  visibility  = "private"
+  visibility  = var.env == "dev" ? "private" : "public"
   auto_init   = true
 }
 
