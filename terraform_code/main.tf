@@ -18,7 +18,7 @@ resource "github_repository_file" "readme" {
   repository          = github_repository.kd-repo[count.index].name
   branch              = "main"
   file                = "README.md"
-  content             = "# This is a repo for infra developers"
+  content             = "# This ${var.env} repo is for infra developers"
   overwrite_on_create = true
 }
 
@@ -38,6 +38,6 @@ output "clone_urls" {
 }
 
 output "varsource" {
-  value = var.varsource
+  value       = var.varsource
   description = "Source being used to source variable definition. To test the concept."
 }
